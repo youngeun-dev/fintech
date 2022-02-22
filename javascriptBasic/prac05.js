@@ -12,3 +12,7 @@ for(let i = 0; i<cars.length; i++){
 cars.map((car)=>{
     console.log(car);
 });
+
+
+//in Java
+//for(String a : StringArray)
