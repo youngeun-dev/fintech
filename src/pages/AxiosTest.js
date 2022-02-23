@@ -6,14 +6,13 @@ const AxiosTest = () => {
   const handleClick = () => {
     console.log("click");
     axios
-    .get("https://naver.com")
+    .get("https://newsapi.org/v2/everything?q=tesla&from=2022-01-23&sortBy=publishedAt&apiKey=9b98d8fe8ce042ed9ae96037f108fb17")
     .then((response) => {
       console.log(response);
     })
     .catch((err) => {
       console.error(err);
     }) 
-    // 비동기 방식
   }
   return (
     <div>
