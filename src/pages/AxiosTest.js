@@ -3,7 +3,7 @@ import HeaderWhite from "../components/HeaderWhite";
 
 const AxiosTest = () => {
   const handleClick = () => {
-    console.log("click");
+    console.log("Click");
   }
   return (
     <div>
