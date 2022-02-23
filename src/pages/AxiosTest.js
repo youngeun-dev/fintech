@@ -1,9 +1,19 @@
+import axios from "axios";
 import React from "react";
 import HeaderWhite from "../components/HeaderWhite";
 
 const AxiosTest = () => {
   const handleClick = () => {
-    console.log("Click");
+    console.log("click");
+    axios
+    .get("https://naver.com")
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.error(err);
+    }) 
+    // 비동기 방식
   }
   return (
     <div>
