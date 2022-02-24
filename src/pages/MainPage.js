@@ -1,25 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import HeaderWhite from '../components/HeaderWhite';
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import HeaderWhite from "../components/HeaderWhite";
+import MainCard from "../components/Main/MainCard";
 
 const MainPage = () => {
-    useEffect(() => {
-      getAccountList();
-    }, [])
+  useEffect(() => {
+    getAccountList();
+  }, []);
+
+  const [accountList, setaccountList] = useState([]);
+
+  const getAccountList = () => {
+    const accessToken = localStorage.getItem("accessToken");
+    const userSeqNo = localStorage.getItem("userseqNo");
     
-    const [accountList, setaccountList] = useState()
+    console.log(accessToken);
+    console.log(userSeqNo);
 
-    const getAccountList = () => {
-        const accessToken = localStorage.getItem("accessToken");
-        const userSeqNo = localStorage.getItem("userSeqNo");
-
-        // 사용자 정보 조회 API를 통해 accountList 에 게좌 목록을 저장 axios ; 메뉴얼 참고
+    const sendData = {
+      user_seq_no: userSeqNo,
     };
+
+    const option = {
+      method: "GET",
+      url: "/v2.0/user/me",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      params: sendData, //object
+    };
+
+    axios(option).then(({ data }) => {
+      const accountListFromRequest = data.res_list;
+      setaccountList(accountListFromRequest);
+    });
+  };
 
   return (
     <div>
-        <Headers title={"메인페이지"}></Headers>
+      <HeaderWhite title={"메인페이지(계좌목록)"}></HeaderWhite>
+      {accountList.map(({bank_name, fintech_use_num})=>{
+        return(
+        <MainCard bankName={bank_name} fintechUseNo={fintech_use_num}>
+        </MainCard>
+        )
+      })}
     </div>
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;
