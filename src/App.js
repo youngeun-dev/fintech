@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ListComponent from "./components/ListComponent";
-import Welcome from "./components/Welcome";
 import AxiosTest from "./pages/AxiosTest";
 import NewsApiPage from "./pages/NewsApiPage";
 import AuthPage from "./pages/AuthPage";
+import AuthResult from "./pages/AuthResult";
 
 function App() {
   return (
@@ -19,6 +19,9 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/" element={<AuthPage />}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/authResult" element={<AuthResult />}></Route>
       </Routes>
     </BrowserRouter>
   );
