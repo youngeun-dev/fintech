@@ -28,7 +28,7 @@ const AuthResult = () => {
 
         const option = {
             method : "POST",
-            url : "/oauth/2.0/token",
+            url : "/oauth/2.0/token", // 프록시 서버 사용
             headers : {
                 "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
             },
