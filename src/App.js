@@ -3,6 +3,7 @@ import ListComponent from "./components/ListComponent";
 import Welcome from "./components/Welcome";
 import AxiosTest from "./pages/AxiosTest";
 import NewsApiPage from "./pages/NewsApiPage";
+import AuthPage from "./pages/AuthPage";
 
 function App() {
   return (
@@ -11,13 +12,13 @@ function App() {
         <Route path="/test" element={<ListComponent />}></Route>
       </Routes>
       <Routes>
-        <Route path="/" element={<Welcome username="안뇽" age="9" />}></Route>
-      </Routes>
-      <Routes>
         <Route path="/axiosTest" element={<AxiosTest />}></Route>
       </Routes>
       <Routes>
         <Route path="/news" element={<NewsApiPage />}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/" element={<AuthPage />}></Route>
       </Routes>
     </BrowserRouter>
   );
