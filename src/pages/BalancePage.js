@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import queryString from "query-string";
 import HeaderWhite from "../components/HeaderWhite";
 import MainCard from "../components/Main/MainCard";
+import BalanceCard from "../components/Balance/BalanceCard";
+
 
 const BalancePage = () => {
     useEffect(() => {
@@ -41,9 +43,8 @@ const BalancePage = () => {
         };
 
         axios(option).then(({ data }) => {
-            console.log(data)
-            const BalanceFromRequest = data.balance_amt;
-            setBalance(BalanceFromRequest);
+            console.log(data);
+            setBalance(data);
         });
 
     };
@@ -51,7 +52,11 @@ const BalancePage = () => {
     return (
         <div>
             <HeaderWhite title="잔액 조회"></HeaderWhite>
-            <p>잔액 {Balance}원</p>
+            <BalanceCard
+                bankName={Balance.bank_name}
+                fintechNo={Balance.fintech_use_num}
+                balance={Balance.balance_amt}
+            ></BalanceCard>
         </div>
     )
 }
