@@ -18,8 +18,14 @@ const BalancePage = () => {
     const getUserBalance = () =>{
         const accessToken = localStorage.getItem("accessToken");
 
+        const genTransId = () => {
+            let countnum = Math.floor(Math.random() * 1000000000) + 1;
+            let transId = "M202200381U" + countnum; //이용기관번호 본인것 입력
+            return transId;
+          };
+
         const sendData = {
-            bank_tran_id : "M202200381U000000006",
+            bank_tran_id : genTransId(),
             fintech_use_num: fintechUseNo,
             tran_dtime : "20220224130122",
         };
