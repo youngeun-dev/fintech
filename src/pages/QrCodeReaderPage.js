@@ -15,7 +15,8 @@ const QrCodeReaderPage = () => {
 
   const handleScan = (result) => {
     if (result) {
-      setResult(result);
+      //setResult(result);
+      console.log(result);
     }
   };
 
