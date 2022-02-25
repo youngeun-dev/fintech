@@ -106,32 +106,32 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
   }
   const twoLeggedToken =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJNMjAyMjAwMzgxIiwic2NvcGUiOlsib29iIl0sImlzcyI6Imh0dHBzOi8vd3d3Lm9wZW5iYW5raW5nLm9yLmtyIiwiZXhwIjoxNjUzNTQ5Njc3LCJqdGkiOiI3N2VjNTYzYi1hZDhlLTQ4MjktYWY2ZC02NzI1M2FhZWM2MjcifQ._3YQXLRbxTwUV2BM_R654NH3Oz8anOERE6EmvaDat8g";
-const option = {
-  method: "POST",
-  url: "/v2.0/transfer/deposit/fin_num",
-  headers: {
-    Authorization: `bearer ${twoLeggedToken}`,
-  },
-  data: sendData,
-};
-
-axios(option).then(({ data }) => {
-  console.log(data);
-  if (data.rsp_code === "A0000") {
-    alert("결제 성공");
-  }
-});
-};
-return (
-  <ModalCardBlock>
-    <CardTitle>{bankName}</CardTitle>
-    <FintechUseNo>{fintechUseNo}</FintechUseNo>
-    <p>{tofintechno}에 출금이체를 발생시킵니다.</p>
-    <input onChange={handleAmountChange}></input>
-    <WithDrawButton onClick={handleWithdraw}>결제하기</WithDrawButton>
-  </ModalCardBlock>
-);
+  const option = {
+    method: "POST",
+    url: "/v2.0/transfer/deposit/fin_num",
+    headers: {
+      Authorization: `bearer ${twoLeggedToken}`,
+    },
+    data: sendData,
   };
+
+  axios(option).then(({ data }) => {
+    console.log(data);
+    if (data.rsp_code === "A0000") {
+      alert("결제 성공");
+    }
+  });
+  };
+  return (
+    <ModalCardBlock>
+      <CardTitle>{bankName}</CardTitle>
+      <FintechUseNo>{fintechUseNo}</FintechUseNo>
+      <p>{tofintechno}에 출금이체를 발생시킵니다.</p>
+      <input onChange={handleAmountChange}></input>
+      <WithDrawButton onClick={handleWithdraw}>결제하기</WithDrawButton>
+    </ModalCardBlock>
+  );
+    };
 
   
 export default ModalCard;
