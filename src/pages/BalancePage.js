@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 import queryString from "query-string";
 import HeaderWhite from "../components/HeaderWhite";
-import MainCard from "../components/Main/MainCard";
 import BalanceCard from "../components/Balance/BalanceCard";
 import TransactionList from "../components/Balance/TransactionList";
 

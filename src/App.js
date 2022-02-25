@@ -6,6 +6,8 @@ import AuthPage from "./pages/AuthPage";
 import AuthResult from "./pages/AuthResult";
 import MainPage from "./pages/MainPage";
 import BalancePage from "./pages/BalancePage";
+import QrCodePage from "./pages/QrCodePage";
+
 
 function App() {
   return (
@@ -30,6 +32,9 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/balance" element={<BalancePage />}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/qr" element={<QrCodePage />}></Route>
       </Routes>
     </BrowserRouter>
   );
